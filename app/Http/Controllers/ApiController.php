@@ -42,4 +42,15 @@ class ApiController extends Controller
             return $this->responseWithError([],$th->getMessage());
         }
     }
+    public function delete($id){
+        $user = User::find($id);
+        try{
+          $user->delete();
+            return $this->responseWithSuccess($user);
+        }
+        catch (\Throwable $th){
+            return $this->responseWithError([]);
+
+        }
+    }
 }
