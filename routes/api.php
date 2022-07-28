@@ -22,3 +22,4 @@ Route::get('/users',[ApiController::class,'index']);
 Route::get('/users/{id}',[ApiController::class,'singledata']);
 Route::post('users/create',[ApiController::class,'create']);
 Route::delete('users/delete/{id}',[ApiController::class,'delete']);
+Route::post('users/update/{id}',[ApiController::class,'update']);

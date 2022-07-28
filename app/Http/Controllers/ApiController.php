@@ -53,4 +53,21 @@ class ApiController extends Controller
 
         }
     }
+    public function update(Request $request,$id){
+        //dd($request->all());
+        $user = User::find($id);
+        try{
+          $user->update([
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'password' =>$request->password
+
+        ]);
+            return $this->responseWithSuccess($user);
+        }
+        catch (\Throwable $th){
+            return $this->responseWithError([]);
+
+        }
+    }
 }
